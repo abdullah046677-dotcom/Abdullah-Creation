@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abdullah Creation</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    background: #075e45;
+    color: white;
+    padding: 17px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #f5d76e;
+}
+
+.search-box {
+    display: flex;
+    gap: 5px;
+}
+
+.search-box input {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+    outline: none;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: white;
+    padding: 15px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    box-shadow: 0 2px 5px #ddd;
+}
+
+nav button {
+    border: none;
+    padding: 11px 20px;
+    background: #e4f2eb;
+    border-radius: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+nav button:hover,
+nav button.active {
+    background: #075e45;
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(120deg,#075e45,#0b9670);
+    color: white;
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hero button {
+    margin-top: 22px;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 25px;
+    background: #f5d76e;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* MAIN */
+
+.container {
+    padding: 25px;
+}
+
+.section-title {
+    color: #075e45;
+    margin: 25px 0;
+    font-size: 25px;
+}
+
+/* VIDEO GRID */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+    );
+    gap: 22px;
+}
+
+.video-card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #ddd;
+    transition: 0.3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.thumbnail {
+    height: 155px;
+    background: linear-gradient(135deg,#c9e9d9,#8bc9a9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    cursor: pointer;
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-info h3 {
+    color: #075e45;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+.watch-btn {
+    background: #075e45;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+/* VIDEO PLAYER */
+
+.player-section {
+    display: none;
+    background: white;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.player-section video {
+    width: 100%;
+    max-height: 480px;
+    background: black;
+    border-radius: 10px;
+}
+
+.close-btn {
+    background: #d62828;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* UPLOAD */
+
+.upload-section {
+    background: white;
+    padding: 25px;
+    margin-top: 35px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.upload-section input {
+    margin: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #064b38;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer h2 {
+    margin-bottom: 12px;
+}
+
+footer p {
+    line-height: 2;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ☪ <span>Abdullah</span> Creation
+    </div>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="ভিডিও খুঁজুন..."
+            oninput="searchVideos()"
+        >
+    </div>
+
+</header>
+
+<nav>
+
+    <button class="active"
+    onclick="filterVideos('সব',this)">
+    🏠 Home
+    </button>
+
+    <button onclick="filterVideos('কার্টুন',this)">
+    🎬 ইসলামিক কার্টুন
+    </button>
+
+    <button onclick="filterVideos('শিক্ষা',this)">
+    📖 ইসলামিক শিক্ষা
+    </button>
+
+    <button onclick="filterVideos('গল্প',this)">
+    🕌 নবীদের গল্প
+    </button>
+
+    <button onclick="filterVideos('শিশু',this)">
+    🌙 শিশুদের ভিডিও
+    </button>
+
+</nav>
+
+<section class="hero">
+
+    <h1>🌙 Abdullah Creation</h1>
+
+    <p>
+        শিশুদের জন্য ইসলামিক শিক্ষার সুন্দর জগৎ।
+        <br>
+        ইসলামিক কার্টুন দেখুন এবং ভালো কিছু শিখুন।
+    </p>
+
+    <button onclick="document.getElementById('videos').scrollIntoView({behavior:'smooth'})">
+        ভিডিও দেখুন ▶
+    </button>
+
+</section>
+
+<div class="container">
+
+    <h2 class="section-title">
+        🌟 জনপ্রিয় ভিডিও
+    </h2>
+
+    <div class="player-section" id="player">
+
+        <h2 id="playingTitle">ভিডিও চলছে</h2>
+
+        <video id="videoPlayer" controls playsinline>
+        </video>
+
+        <br>
+
+        <button class="close-btn" onclick="closeVideo()">
+            ✖ ভিডিও বন্ধ করুন
+        </button>
+
+    </div>
+
+    <div class="video-grid" id="videos">
+
+        <div class="video-card"
+        data-category="কার্টুন শিক্ষা">
+
+            <div class="thumbnail"
+            onclick="showUploadMessage()">
+                🎬
+            </div>
+
+            <div class="video-info">
+
+                <h3>ইসলামিক কার্টুন</h3>
+
+                <p>শিশুদের জন্য সুন্দর শিক্ষামূলক কার্টুন।</p>
+
+                <button class="watch-btn"
+                onclick="showUploadMessage()">
+                    ▶ ভিডিও দেখুন
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="video-card"
+        data-category="শিক্ষা">
+
+            <div class="thumbnail"
+            onclick="showUploadMessage()">
+                🕌
+            </div>
+
+            <div class="video-info">
+
+                <h3>ইসলামিক শিক্ষা</h3>
+
+                <p>ইসলাম সম্পর্কে সুন্দর কিছু শিক্ষা।</p>
+
+                <button class="watch-btn"
+                onclick="showUploadMessage()">
+                    ▶ ভিডিও দেখুন
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="video-card"
+        data-category="গল্প শিশু">
+
+            <div class="thumbnail"
+            onclick="showUploadMessage()">
+                🌙
+            </div>
+
+            <div class="video-info">
+
+                <h3>নবীদের গল্প</h3>
+
+                <p>শিশুদের উপযোগী শিক্ষামূলক গল্প।</p>
+
+                <button class="watch-btn"
+                onclick="showUploadMessage()">
+                    ▶ ভিডিও দেখুন
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="video-card"
+        data-category="শিশু কার্টুন">
+
+            <div class="thumbnail"
+            onclick="showUploadMessage()">
+                ⭐
+            </div>
+
+            <div class="video-info">
+
+                <h3>শিশুদের ইসলামিক গল্প</h3>
+
+                <p>ছোটদের জন্য সুন্দর গল্পের জগৎ।</p>
+
+                <button class="watch-btn"
+                onclick="showUploadMessage()">
+                    ▶ ভিডিও দেখুন
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="upload-section">
+
+        <h2>📂 নিজের ভিডিও চালান</h2>
+
+        <p>
+            নিজের ডিভাইস থেকে একটি ভিডিও নির্বাচন করুন।
+        </p>
+
+        <input
+            type="file"
+            id="videoFile"
+            accept="video/*"
+            onchange="loadVideo(event)"
+        >
+
+    </div>
+
+</div>
+
+<footer>
+
+    <h2>☪ Abdullah Creation</h2>
+
+    <p>
+        শিশুদের জন্য ইসলামিক শিক্ষার সুন্দর একটি জগৎ।
+    </p>
+
+    <p>
+        Home | Islamic Cartoon | Islamic Education
+    </p>
+
+    <p>
+        © 2026 Abdullah Creation
+    </p>
+
+</footer>
+
+<script>
+
+const player = document.getElementById("videoPlayer");
+
+function loadVideo(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    if (player.dataset.url) {
+        URL.revokeObjectURL(player.dataset.url);
+    }
+
+    const url = URL.createObjectURL(file);
+
+    player.dataset.url = url;
+
+    player.src = url;
+
+    document.getElementById("playingTitle").innerText =
+        file.name;
+
+    document.getElementById("player").style.display =
+        "block";
+
+    document.getElementById("player").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    player.play().catch(() => {});
+
+}
+
+function closeVideo() {
+
+    player.pause();
+
+    player.removeAttribute("src");
+
+    player.load();
+
+    if (player.dataset.url) {
+        URL.revokeObjectURL(player.dataset.url);
+        delete player.dataset.url;
+    }
+
+    document.getElementById("player").style.display =
+        "none";
+
+}
+
+function showUploadMessage() {
+
+    alert(
+        "এই ভিডিও কার্ডে এখনো ভিডিও যোগ করা হয়নি। নিচের ভিডিও নির্বাচন অপশন থেকে নিজের ভিডিও চালাতে পারো।"
+    );
+
+}
+
+function searchVideos() {
+
+    const value =
+        document.getElementById("search")
+        .value.toLowerCase();
+
+    document.querySelectorAll(".video-card")
+    .forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        card.style.display =
+            text.includes(value) ? "block" : "none";
+
+    });
+
+}
+
+function filterVideos(category,button) {
+
+    document.querySelectorAll(".video-card")
+    .forEach(card => {
+
+        const type = card.dataset.category;
+
+        card.style.display =
+            category === "সব" ||
+            type.includes(category)
+            ? "block"
+            : "none";
+
+    });
+
+    document.querySelectorAll("nav button")
+    .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+}
+
+</script>
+
+</body>
+  </html>
